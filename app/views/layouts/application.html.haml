@@ -22,7 +22,7 @@
                 = link_to 'Join', new_user_registration_path
               %li
                 = link_to 'Login', new_user_session_path
-    .uk-container.uk-container-center
+    .uk-container.uk-container-center#container
       - if notice.present?
         %p.notice= notice
       - if alert.present?
