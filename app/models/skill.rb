@@ -2,6 +2,7 @@ class Skill < ActiveRecord::Base
   belongs_to :robot
 
   scope :active, -> { where(active: true) }
+  scope :inactive, -> { where(active: false) }
 
   CATEGORY_NAMES = {
     rumble: 'Rumble',
@@ -22,10 +23,25 @@ class Skill < ActiveRecord::Base
     CATEGORY_NAMES[self.category.to_sym]
   end
 
+  def activate
+    return false if self.robot.skills.active.size == Robot::MAX_ACTIVE_SKILLS
+    self.active = true
+    self.save!
+    return true
+  end
+
+  def deactivate
+    self.active = false
+    self.save!
+    return true
+  end
+
   private
     def set_defaults
       self.level = 1
       self.experience = 0
+      self.active = false
+      true
     end
 
 end

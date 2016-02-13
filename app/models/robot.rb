@@ -10,6 +10,8 @@ class Robot < ActiveRecord::Base
     meche: [:oil]
   }
 
+  MAX_ACTIVE_SKILLS = 4
+
   belongs_to :user
   has_many :skills
 
@@ -38,7 +40,6 @@ class Robot < ActiveRecord::Base
 
     def grant_base_skills
       [:base, self.category.to_sym].each do |set|
-        puts set.to_s
         DEFAULT_SKILLSET[set].each do |s|
           self.skills.create!(category: s)
         end

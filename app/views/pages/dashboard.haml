@@ -32,7 +32,7 @@
         .uk-grid.skills
           .uk-width-1-2.available
             %h3 Available skills
-            = render 'skills', skills: r.skills
+            = render 'skills', skills: r.skills.inactive, active: false
           .uk-width-1-2.active
             %h3 Active skills
-            = render 'skills', skills: r.skills.active
+            = render 'skills', skills: r.skills.active, active: true

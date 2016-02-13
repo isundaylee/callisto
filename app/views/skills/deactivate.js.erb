@@ -1,0 +1,9 @@
+<% if @success %>
+  var robot = $('.robot-detail[data-robot_id=' + <%= @skill.robot.id %> + ']');
+  var skill = robot.find('[data-skill_id=' + <%= @skill.id %> +']'); 
+  skill.detach().appendTo(robot.find('.skills .available')); 
+  skill.find('.deactivate').hide()
+  skill.find('.activate').show()
+<% else %>
+  alert('Cannot deactivate skill. '); 
+<% end %>

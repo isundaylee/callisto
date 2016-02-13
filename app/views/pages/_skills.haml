@@ -1,7 +1,6 @@
-- if skills.empty?
-  %p No skills to show. 
-- else
-  - skills.each do |s|
-    .skill
-      %p.name= s.category_name
-      %p.description= "Level #{s.level}"
+- skills.each do |s|
+  .skill{'data-skill_id' => s.id}
+    %p.name= s.category_name
+    %p.description= "Level #{s.level}"
+    = link_to 'Activate', activate_skill_path(s), method: :post, class: 'activate', data: {remote: true}
+    = link_to 'Deactivate', deactivate_skill_path(s), method: :post, class: 'deactivate', data: {remote: true}
