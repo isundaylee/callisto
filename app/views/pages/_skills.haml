@@ -4,3 +4,5 @@
     %p.description= "Level #{s.level}"
     = link_to 'Activate', activate_skill_path(s), method: :post, class: 'activate', data: {remote: true}
     = link_to 'Deactivate', deactivate_skill_path(s), method: :post, class: 'deactivate', data: {remote: true}
+    - if Training.has_available_trainings_for?(s)
+      = link_to 'Training Available', train_skill_path(s, Training.next_training_for(s)['name']), class: 'training' 

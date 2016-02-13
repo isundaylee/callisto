@@ -1,0 +1,14 @@
+%h2 Skill Training
+
+- wrong = [] if local_assigns[:wrong].nil?
+- answers = nil if local_assigns[:answers].nil?
+
+= form_tag submit_training_skill_path(@skill, @training_name) do
+  - @questions.each_with_index do |q, question_id|
+    .question{class: wrong.include?(question_id) ? 'wrong' : ''}
+      %p.prompt= q['prompt']
+      - q['choices'].each_with_index do |c, answer|
+        = radio_button_tag "answer_#{question_id}", answer, answers && answers[question_id] == answer
+        = label_tag "answer_#{question_id}_#{answer}", c
+        %br/
+  = submit_tag 'Submit Your Answers'

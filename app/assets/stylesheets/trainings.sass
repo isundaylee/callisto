@@ -1,0 +1,27 @@
+@import 'variables'
+
+#trainings_train, #trainings_submit
+  form
+    width: 60%
+    margin: 0 auto
+
+    .question
+      margin: 2em auto
+      padding: 1em 1.5em
+
+      &.wrong
+        background-color: $red-color
+        color: white
+
+    input[type=submit]
+      display: block
+      width: 60%
+      margin: 0 auto
+      font-size: 1.0em
+      line-height: 2em
+      background-color: $bg-color
+      border: none
+      color: white
+
+      &:hover
+        background-color: lighten($bg-color, 10)

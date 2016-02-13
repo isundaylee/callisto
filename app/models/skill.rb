@@ -37,6 +37,10 @@ class Skill < ActiveRecord::Base
     return true
   end
 
+  def has_completed_training?(name)
+    self.trainings.where(name: name).any?
+  end
+  
   private
     def set_defaults
       self.level = 1

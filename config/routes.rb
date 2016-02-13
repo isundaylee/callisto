@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'trainings/train'
+
   get 'fights/show'
 
   devise_for :users
@@ -13,6 +15,9 @@ Rails.application.routes.draw do
     member do
       post :activate
       post :deactivate
+
+      get 'train/:name', to: 'trainings#train', as: 'train'
+      post 'train/:name', to: 'trainings#submit', as: 'submit_training'
     end
   end
   resources :fights, only: [:create, :show]
