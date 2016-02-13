@@ -9,10 +9,21 @@
       = f.text_field :identifier, placeholder: 'Identifier of the bot. '
       = f.submit 'Add Bot'
 
+= form_for Fight.new do |f|
+  = f.hidden_field :challenger_id
+  = f.hidden_field :challengee_id
+
+#challenge_robot.uk-modal
+  .uk-modal-dialog
+    %a.uk-modal-close.uk-close
+    %h3 Challenge Other Bots
+    - Robot.all.each do |r|
+      = link_to 'Challenge ' + r.name, '#', class: 'button challenge-button', data: {'robot-id' => r.id}
+
 .uk-grid
   .uk-width-1-4
     - @robots.each do |r|
-      %a.robot{'data-robot_id' => r.id}
+      %a.robot{'data-robot-id' => r.id}
         %h3.name= r.name
         %p.description= "Level #{r.level}"
         %p.description= "#{r.category_name} Bot"
@@ -21,14 +32,19 @@
 
   .uk-width-3-4
     - @robots.each do |r|
-      .robot-detail{'data-robot_id' => r.id}
-        %p.label Health
+      .robot-detail{'data-robot-id' => r.id}
         .health
           .max &nbsp; 
           .current{style: "width: #{(100.0 * r.health / r.max_health).to_i}%; "}= "#{r.health} / #{r.max_health}"
-        %p.label= "Strength: #{r.strength}"
-        %p.label= "Speed: #{r.speed}"
-        %p.label= "Experience: #{r.experience}"
+        .uk-grid.stats
+          .uk-width-1-3
+            %p.label= "Strength: #{r.strength}"
+          .uk-width-1-3
+            %p.label= "Speed: #{r.speed}"
+          .uk-width-1-3
+            %p.label= "Experience: #{r.experience}"
+        .challenge
+          = link_to 'Challenge Other Bots! ', '#challenge_robot', class: 'button danger', data: {'uk-modal' => ''}
         .uk-grid.skills
           .uk-width-1-2.available
             %h3 Available skills

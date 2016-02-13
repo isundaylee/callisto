@@ -1,4 +1,6 @@
 Rails.application.routes.draw do
+  get 'fights/show'
+
   devise_for :users
 
   root 'pages#homepage'
@@ -13,4 +15,5 @@ Rails.application.routes.draw do
       post :deactivate
     end
   end
+  resources :fights, only: [:create, :show]
 end
