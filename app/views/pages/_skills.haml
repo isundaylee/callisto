@@ -1,5 +1,5 @@
 - skills.each do |s|
-  .skill{'data-skill_id' => s.id}
+  .skill{'data-skill-id' => s.id}
     %p.name= s.category_name
     %p.description= "Level #{s.level}"
     = link_to 'Activate', activate_skill_path(s), method: :post, class: 'activate', data: {remote: true}

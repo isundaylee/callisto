@@ -1,9 +1,9 @@
 <% if @success %>
-  var robot = $('.robot-detail[data-robot_id=' + <%= @skill.robot.id %> + ']');
-  var skill = robot.find('[data-skill_id=' + <%= @skill.id %> +']'); 
-  skill.detach().appendTo(robot.find('.skills .active')); 
+  var robot = $('.robot-detail[data-robot-id=' + <%= @skill.robot.id %> + ']');
+  var skill = robot.find('[data-skill-id=' + <%= @skill.id %> +']');
+  skill.detach().appendTo(robot.find('.skills .active'));
   skill.find('.activate').hide()
   skill.find('.deactivate').show()
 <% else %>
-  alert('Cannot activate skill. Each robot can have at most ' + <%= Robot::MAX_ACTIVE_SKILLS %> + ' skills active at the same time. '); 
+  alert('Cannot activate skill. Each robot can have at most ' + <%= Robot::MAX_ACTIVE_SKILLS %> + ' skills active at the same time. ');
 <% end %>

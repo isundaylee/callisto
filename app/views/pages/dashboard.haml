@@ -34,7 +34,7 @@
     - @robots.each do |r|
       .robot-detail{'data-robot-id' => r.id}
         .health
-          .max &nbsp; 
+          .max &nbsp;
           .current{style: "width: #{(100.0 * r.health / r.max_health).to_i}%; "}= "#{r.health} / #{r.max_health}"
         .uk-grid.stats
           .uk-width-1-3
