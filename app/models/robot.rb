@@ -15,6 +15,10 @@ class Robot < ActiveRecord::Base
     CATEGORY_NAMES[self.category.to_sym]
   end
 
+  def max_health
+    8 + 2 * self.level
+  end
+
   private
     def set_defaults
       self.level = 1

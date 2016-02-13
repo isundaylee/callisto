@@ -12,9 +12,20 @@
 .uk-grid
   .uk-width-1-4
     - @robots.each do |r|
-      .robot
+      %a.robot{'data-robot_id' => r.id}
         %p.name= r.name
         %p.description= "Level #{r.level}"
         %p.description= "#{r.category_name} Bot"
 
     = link_to 'Add Bot', '#new_robot', class: 'button', data: {'uk-modal' => ''}
+
+  .uk-width-3-4
+    - @robots.each do |r|
+      .robot-detail{'data-robot_id' => r.id}
+        %p.label Health
+        .health
+          .max &nbsp; 
+          .current{style: "width: #{(100.0 * r.health / r.max_health).to_i}%; "}= "#{r.health} / #{r.max_health}"
+        %p.label= "Strength: #{r.strength}"
+        %p.label= "Speed: #{r.speed}"
+        %p.label= "Experience: #{r.experience}"

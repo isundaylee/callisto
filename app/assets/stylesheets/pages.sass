@@ -8,6 +8,7 @@
 
 #pages_dashboard
   .robot
+    display: block
     margin-bottom: 1em
     width: 100%
     box-sizing: border-box
@@ -15,12 +16,47 @@
 
     &:hover, &.active
       background-color: #EEE
+      text-decoration: none
 
     .name
       font-size: 1.8em
+      color: #000
 
     .description
       font-size: 1em
       color: #AAA
       margin-top: -0.5em
       margin-bottom: 0.5em
+
+  .robot-detail
+    margin-top: 3em
+    display: none
+
+    &.active
+      display: block
+
+    .label
+      font-size: 1.2em
+
+    .health
+      position: relative
+      height: 25px
+
+      .max
+        position: absolute
+        width: 100%
+        top: 0
+        left: 0
+        height: 25px
+        border: 2px solid $green-color
+
+      .current
+        position: absolute
+        top: 0
+        left: 0
+        height: 25px
+        line-height: 25px
+        background-color: $green-color
+        border: 2px solid $green-color
+        text-align: center
+        color: white

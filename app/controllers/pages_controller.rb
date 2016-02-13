@@ -6,5 +6,6 @@ class PagesController < ApplicationController
 
   def dashboard
     @robots = current_user.robots.all
+    @current_robot = @robots.first
   end
 end

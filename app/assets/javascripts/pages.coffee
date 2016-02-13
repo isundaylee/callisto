@@ -1,3 +1,11 @@
-# Place all the behaviors and hooks related to the matching controller here.
-# All this logic will automatically be available in application.js.
-# You can use CoffeeScript in this file: http://coffeescript.org/
+ready = ->
+  if $('body#pages_dashboard').length > 0
+    App.reveal_robot = ->
+      id = parseInt($(this).data('robot_id'))
+      $('.robot, .robot-detail').removeClass('active')
+      $('[data-robot_id=' + id + ']').addClass('active')
+
+    $('.robot').click App.reveal_robot
+
+$(document).ready(ready)
+$(document).on('page:load', ready)
