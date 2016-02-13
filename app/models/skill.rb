@@ -1,5 +1,6 @@
 class Skill < ActiveRecord::Base
   belongs_to :robot
+  has_many :trainings
 
   scope :active, -> { where(active: true) }
   scope :inactive, -> { where(active: false) }
