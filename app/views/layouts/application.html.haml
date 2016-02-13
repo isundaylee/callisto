@@ -14,7 +14,7 @@
           %ul.uk-navbar-nav
             - if user_signed_in?
               %li
-                %a{:href => ""} Dashboard
+                %a{href: dashboard_path} Dashboard
               %li
                 = link_to 'Sign Out', destroy_user_session_path, method: :delete
             - else

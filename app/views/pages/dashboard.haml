@@ -1,0 +1,20 @@
+%h2 Dashboard
+
+#new_robot.uk-modal
+  .uk-modal-dialog
+    %a.uk-modal-close.uk-close
+    %h3 Add Bot
+    = form_for current_user.robots.new, html: {class: 'modal-form'} do |f|
+      = f.text_field :name, placeholder: 'Name of the bot. '
+      = f.text_field :identifier, placeholder: 'Identifier of the bot. '
+      = f.submit 'Add Bot'
+
+.uk-grid
+  .uk-width-1-4
+    - @robots.each do |r|
+      .robot
+        %p.name= r.name
+        %p.description= "Level #{r.level}"
+        %p.description= "#{r.category_name} Bot"
+
+    = link_to 'Add Bot', '#new_robot', class: 'button', data: {'uk-modal' => ''}

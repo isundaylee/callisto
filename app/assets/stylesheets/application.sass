@@ -3,10 +3,6 @@
 
 @import 'pages'
 
-$bg-color: #3399ff
-$notice-color: $bg-color
-$alert-color: #ff8000
-
 nav.cl-navbar
   background-color: $bg-color
 
@@ -43,10 +39,7 @@ h2
   font-size: 3em
   margin-top: 1.5em
 
-form
-  width: 40%
-  margin: 3em auto
-
+form.center-form, form.basic-form, form.modal-form
   input
     display: block
     width: 100%
@@ -67,3 +60,35 @@ form
 
 #container
   padding: 50px 0
+
+form.center-form
+  width: 40%
+  margin: 3em auto
+
+form.fullwidth-form
+  width: 100%
+
+form.modal-form
+  width: 70%
+  margin: 2em auto 3em
+
+.uk-modal-dialog h3
+  text-align: center
+  font-size: 2em
+  padding-top: 1em
+  padding-bottom: 0.5em
+
+a.button
+  display: block
+  line-height: 2em
+  background-color: $bg-color
+  border: none
+  color: white
+  margin: 1em auto
+  padding: 0.7em
+  font-size: 1.0em
+  text-align: center
+
+  &:hover
+    text-decoration: none
+    background-color: lighten($bg-color, 10)
