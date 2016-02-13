@@ -15,7 +15,7 @@ class Robot < ActiveRecord::Base
   belongs_to :user
   has_many :skills
 
-  enum category: [:ee, :cs, :physics]
+  enum category: [:ee, :meche]
 
   before_create :set_defaults
   after_create :grant_base_skills
