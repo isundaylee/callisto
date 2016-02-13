@@ -6,7 +6,19 @@
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
-  %body
-    %p.notice= notice
-    %p.alert= alert
-    = yield
+  %body{id: controller_name + '_' + action_name}
+    %nav.uk-navbar.cl-navbar
+      .uk-container.uk-container-center
+        %a.uk-navbar-brand{href: root_path} Callisto
+        .uk-navbar-flip
+          %ul.uk-navbar-nav
+            %li
+              %a{href: root_path} Homepage
+            %li
+              %a{:href => ""} Dashboard
+    .uk-container.uk-container-center
+      - if notice.present?
+        %p.notice= notice
+      - if alert.present?
+        %p.alert= alert
+      = yield
