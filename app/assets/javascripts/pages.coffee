@@ -6,6 +6,7 @@ ready = ->
       $('[data-robot_id=' + id + ']').addClass('active')
 
     $('.robot').click App.reveal_robot
+    $('.robot')[0].click()
 
 $(document).ready(ready)
 $(document).on('page:load', ready)

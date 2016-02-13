@@ -1,0 +1,7 @@
+- if skills.empty?
+  %p No skills to show. 
+- else
+  - skills.each do |s|
+    .skill
+      %p.name= s.category_name
+      %p.description= "Level #{s.level}"
