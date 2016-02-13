@@ -2,20 +2,26 @@
 %html
   %head
     %meta{:content => "text/html; charset=UTF-8", "http-equiv" => "Content-Type"}/
-    %title Callisto
+    %title= name
     = stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track' => true
     = javascript_include_tag 'application', 'data-turbolinks-track' => true
     = csrf_meta_tags
   %body{id: controller_name + '_' + action_name}
     %nav.uk-navbar.cl-navbar
       .uk-container.uk-container-center
-        %a.uk-navbar-brand{href: root_path} Callisto
+        %a.uk-navbar-brand{href: root_path}= name
         .uk-navbar-flip
           %ul.uk-navbar-nav
-            %li
-              %a{href: root_path} Homepage
-            %li
-              %a{:href => ""} Dashboard
+            - if user_signed_in?
+              %li
+                %a{:href => ""} Dashboard
+              %li
+                = link_to 'Sign Out', destroy_user_session_path, method: :delete
+            - else
+              %li
+                = link_to 'Join', new_user_registration_path
+              %li
+                = link_to 'Login', new_user_session_path
     .uk-container.uk-container-center
       - if notice.present?
         %p.notice= notice
