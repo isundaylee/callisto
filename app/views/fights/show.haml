@@ -32,5 +32,5 @@
               - 0.upto(3) do |i|
                 .skill.uk-width-1-2
                   .uk-panel.uk-panel-box
-                    - next if bot.skills.active.size <= i
-                    %p= bot.skills.active[i].category_name
+                    - unless bot.skills.active.size <= i
+                      %p= bot.skills.active[i].category_name
