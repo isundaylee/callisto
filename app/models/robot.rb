@@ -1,12 +1,12 @@
 class Robot < ActiveRecord::Base
   CATEGORY_NAMES = {
-    ee: 'Electrical Engineering', 
+    ee: 'Electrical Engineering',
     meche: 'Mechanical Engineering'
   }
 
   DEFAULT_SKILLSET = {
-    base: [:rumble, :squeal], 
-    ee: [:short_circuit], 
+    base: [:rumble, :squeal],
+    ee: [:short_circuit],
     meche: [:oil]
   }
 
@@ -17,6 +17,7 @@ class Robot < ActiveRecord::Base
 
   enum category: [:ee, :meche]
 
+  before_create :fetch_category
   before_create :set_defaults
   after_create :grant_base_skills
 
@@ -31,11 +32,11 @@ class Robot < ActiveRecord::Base
   private
     def set_defaults
       self.level = 1
-      self.category = 'ee'
       self.strength = 10
       self.speed = 10
       self.health = 10
       self.experience = 0
+      true
     end
 
     def grant_base_skills
@@ -44,5 +45,12 @@ class Robot < ActiveRecord::Base
           self.skills.create!(category: s)
         end
       end
+      true
+    end
+
+    def fetch_category
+      client = Particle.new('7941c28d0fca23c2efbe75bbd0f0d6ad81210f5c', self.identifier)
+      self.category = client.get_device_variable('category')
+      true
     end
 end
