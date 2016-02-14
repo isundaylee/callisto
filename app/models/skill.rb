@@ -40,6 +40,20 @@ class Skill < ActiveRecord::Base
   def has_completed_training?(name)
     self.trainings.where(name: name).any?
   end
+
+  def invoke!
+    case self.category.to_sym
+    when :rumble
+      particle_client.call_device_function("setEyes", :on)
+    when :squeal
+    when :punch
+    when :buckle
+    when :oil
+    when :light_eyes
+    when :raise_voltage
+    when :short_circuit
+    end
+  end
   
   private
     def set_defaults
@@ -47,6 +61,10 @@ class Skill < ActiveRecord::Base
       self.experience = 0
       self.active = false
       true
+    end
+
+    def particle_client
+      @client ||= Particle.new('7941c28d0fca23c2efbe75bbd0f0d6ad81210f5c', self.robot.identifier)
     end
 
 end

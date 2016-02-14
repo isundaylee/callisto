@@ -16,6 +16,8 @@ gem 'devise'
 gem 'uikit-rails'
 gem 'rails_12factor'
 
+gem 'httparty'
+
 group :development, :test do
   gem 'byebug'
 

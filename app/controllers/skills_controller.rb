@@ -8,4 +8,9 @@ class SkillsController < ApplicationController
     @skill = Skill.find(params[:id])
     @success = @skill.deactivate
   end
+
+  def invoke
+    @skill = Skill.find(params[:id])
+    @skill.invoke!
+  end
 end
