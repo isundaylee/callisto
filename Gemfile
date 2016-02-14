@@ -18,6 +18,7 @@ gem 'rails_12factor'
 
 gem 'httparty'
 gem 'puma'
+gem 'resque'
 
 group :development, :test do
   gem 'byebug'
