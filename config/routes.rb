@@ -19,7 +19,7 @@ Rails.application.routes.draw do
     member do
       post :activate
       post :deactivate
-      post :invoke
+      get :invoke
 
       get 'train/:name', to: 'trainings#train', as: 'train'
       post 'train/:name', to: 'trainings#submit', as: 'submit_training'

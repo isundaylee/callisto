@@ -26,11 +26,12 @@
         .uk-grid#menu-grid
           .uk-width-1-2
             #text.uk-panel.uk-panel-box
-              Text
+              Select an action...
           .uk-width-1-2
             #skills.uk-grid.uk-grid-small{"data-uk-grid-match" => "", "data-uk-grid-margin" => ""}
               - 0.upto(3) do |i|
-                .skill.uk-width-1-2
-                  .uk-panel.uk-panel-box
-                    - unless bot.skills.active.size <= i
+                - unless bot.skills.active.size <= i
+                  %a.skill.uk-width-1-2{"href" => "/skills/#{bot.skills.active[i].id}/invoke"}
+                    .uk-panel.uk-panel-box
                       %p= bot.skills.active[i].category_name
+

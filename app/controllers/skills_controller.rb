@@ -12,5 +12,6 @@ class SkillsController < ApplicationController
   def invoke
     @skill = Skill.find(params[:id])
     @skill.invoke!
+    redirect_to :back
   end
 end
