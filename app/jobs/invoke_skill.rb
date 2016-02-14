@@ -13,9 +13,23 @@ class InvokeSkill
       client.call_device_function("setRumble", :off)
     when :squeal
     when :punch
+      client.call_device_function("setArm", 180)
+      sleep 0.5
+      client.call_device_function("setArm", 0)
+      sleep 0.5
+      client.call_device_function("setArm", 180)
+      sleep 0.5
+      client.call_device_function("setArm", 0)
     when :buckle
     when :oil
     when :light_eyes
+      client.call_device_function("setBlaze", 180)
+      sleep 0.5
+      client.call_device_function("setBlaze", 0)
+      sleep 0.5
+      client.call_device_function("setBlaze", 180)
+      sleep 0.5
+      client.call_device_function("setBlaze", 0)
     when :raise_voltage
     when :short_circuit
     end
