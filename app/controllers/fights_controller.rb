@@ -8,6 +8,8 @@ class FightsController < ApplicationController
 
   def create
     @fight = Fight.create!(fight_params)
+    @fight.challenger.heal
+    @fight.challengee.heal
     redirect_to @fight
   end
 

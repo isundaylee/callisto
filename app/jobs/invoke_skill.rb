@@ -8,9 +8,9 @@ class InvokeSkill
 
     case skill.category.to_sym
     when :rumble
-      client.call_device_function("setEyes", :on)
+      client.call_device_function("setRumble", :on)
       sleep 2
-      client.call_device_function("setEyes", :off)
+      client.call_device_function("setRumble", :off)
     when :squeal
     when :punch
     when :buckle

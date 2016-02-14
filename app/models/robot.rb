@@ -35,6 +35,11 @@ class Robot < ActiveRecord::Base
     8 + 2 * self.level
   end
 
+  def heal
+    self.health = self.max_health
+    self.save!
+  end
+
   private
     def set_defaults
       self.level = 1
