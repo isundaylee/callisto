@@ -1,33 +1,33 @@
 {
-    "rumble": [
+    "short_circuit": [
         {
-            "name": "lorem", 
+            "name": "Simple Circuits",
             "questions": [
                 {
-                    "prompt": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima consectetur autem, ab adipisci nesciunt eaque, accusamus ipsam deleniti impedit veritatis eius iure sed sunt. Fugiat sint nihil officia, esse repudiandae!", 
+                    "prompt": "What is the unit to measure current?",
                     "choices": [
-                        "Quia provident recusandae quam fuga unde voluptas ad nisi sunt accusamus in architecto inventore. ", 
-                        "Necessitatibus maxime, temporibus eos dicta ut magnam possimus.", 
-                        "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-                    ], 
-                    "answer": 1
+                        "Amperes",
+                        "Amplify",
+                        "Ambidextrous"
+                    ],
+                    "answer": 0
                 },
                 {
-                    "prompt": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima consectetur autem, ab adipisci nesciunt eaque, accusamus ipsam deleniti impedit veritatis eius iure sed sunt. Fugiat sint nihil officia, esse repudiandae!", 
+                    "prompt": "To find the total resistance of resistors in series, you:",
                     "choices": [
-                        "Quia provident recusandae quam fuga unde voluptas ad nisi sunt accusamus in architecto inventore. ", 
-                        "Necessitatibus maxime, temporibus eos dicta ut magnam possimus.", 
-                        "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-                    ], 
-                    "answer": 1
+                        "take the average resistance",
+                        "take the max resistance",
+                        "add up the resistances"
+                    ],
+                    "answer": 2
                 },
                 {
-                    "prompt": "Lorem ipsum dolor sit amet, consectetur adipisicing elit. Minima consectetur autem, ab adipisci nesciunt eaque, accusamus ipsam deleniti impedit veritatis eius iure sed sunt. Fugiat sint nihil officia, esse repudiandae!", 
+                    "prompt": "A short circuit has",
                     "choices": [
-                        "Quia provident recusandae quam fuga unde voluptas ad nisi sunt accusamus in architecto inventore. ", 
-                        "Necessitatibus maxime, temporibus eos dicta ut magnam possimus.", 
-                        "Lorem ipsum dolor sit amet, consectetur adipisicing elit."
-                    ], 
+                        "ALL THE RESISTANCE!",
+                        "NO RESISTANCE",
+                        "wires that are too short"
+                    ],
                     "answer": 1
                 }
             ]

@@ -32,6 +32,9 @@ class InvokeSkill
       client.call_device_function("setBlaze", 0)
     when :raise_voltage
     when :short_circuit
+      client.call_device_function("setBlaze", 255)
+      sleep 2
+      client.call_device_function("setBlaze", 0)
     end
   end
 end
