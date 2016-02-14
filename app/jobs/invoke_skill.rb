@@ -4,8 +4,7 @@ class InvokeSkill
   def self.perform(skill_id)
     skill = Skill.find(skill_id)
 
-    client = 
-      Particle.new('7941c28d0fca23c2efbe75bbd0f0d6ad81210f5c', skill.robot.identifier)
+    client = Particle.new('7941c28d0fca23c2efbe75bbd0f0d6ad81210f5c', skill.robot.identifier)
 
     case skill.category.to_sym
     when :rumble

@@ -1,5 +1,5 @@
 module ApplicationHelper
   def name
-    'Callisto'
+    'Hackbots'
   end
 end
