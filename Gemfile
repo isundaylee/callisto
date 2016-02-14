@@ -17,6 +17,7 @@ gem 'uikit-sass-rails'
 gem 'rails_12factor'
 
 gem 'httparty'
+gem 'resque'
 
 group :development, :test do
   gem 'byebug'
