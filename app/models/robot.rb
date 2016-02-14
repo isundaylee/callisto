@@ -10,6 +10,12 @@ class Robot < ActiveRecord::Base
     meche: [:oil]
   }
 
+  DEFAULT_IMAGE_URI = {
+    base: "https://placehold.it/400x250",
+    ee: "http://i.imgur.com/ThumYo2.jpg",
+    meche: "http://i.imgur.com/bf0llYo.jpg"
+  }
+
   MAX_ACTIVE_SKILLS = 4
 
   belongs_to :user
@@ -36,6 +42,8 @@ class Robot < ActiveRecord::Base
       self.speed = 10
       self.health = 10
       self.experience = 0
+      self.image_uri = DEFAULT_IMAGE_URI[self.category.to_sym]
+      puts self.image_uri
       true
     end
 
