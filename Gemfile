@@ -13,10 +13,11 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'haml-rails'
 gem 'devise'
-gem 'uikit-sass-rails'
+gem 'uikit-rails'
 gem 'rails_12factor'
 
 gem 'httparty'
+gem 'puma'
 
 group :development, :test do
   gem 'byebug'
