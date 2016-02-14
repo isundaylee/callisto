@@ -1,6 +1,9 @@
 class FightsController < ApplicationController
   def show
     @fight = Fight.find(params[:id])
+
+    @bot_a, @bot_b = @fight.challenger, @fight.challengee
+    @bot_a, @bot_b = @bot_b, @bot_a if @bot_a.user == current_user
   end
 
   def create

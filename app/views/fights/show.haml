@@ -1,1 +1,36 @@
-%h2= "#{@fight.challenger.name} vs #{@fight.challengee.name}"
+- [[@bot_a, "botA"], [@bot_b, "botB"]].each do |bot|
+  - b = bot[0]
+  .bot-container{id: bot[1]}
+    .uk-panel.uk-panel-box
+      .uk-panel-teaser
+        %img{"src" => "https://placehold.it/400x250"}
+
+      %h3= b.name
+      %p.description= "Level #{b.level}"
+      %p.description= "#{b.category_name} Bot"
+      #hp.uk-progress.uk-progress-success
+        .uk-progress-bar{style: "width: #{(100.0 * b.health / b.max_health).to_i}%; "}
+          %span.health= b.health
+          /
+          %span.max_health= b.max_health
+
+.menu-container
+  %ul.tabs.uk-tab{"data-uk-tab" => "{connect: '#menu'}"}
+    %li.uk-active
+      %a{:href => ""}= @bot_a.name
+    %li
+      %a{:href => ""}= @bot_b.name
+  %ul#menu.uk-switcher.uk-margin
+    - [@bot_a, @bot_b].each do |bot|
+      %li.uk-active
+        .uk-grid#menu-grid
+          .uk-width-1-2
+            #text.uk-panel.uk-panel-box
+              Text
+          .uk-width-1-2
+            #skills.uk-grid.uk-grid-small{"data-uk-grid-match" => "", "data-uk-grid-margin" => ""}
+              - 0.upto(3) do |i|
+                .skill.uk-width-1-2
+                  .uk-panel.uk-panel-box
+                    - next if bot.skills.active.size <= i
+                    %p= bot.skills.active[i].category_name

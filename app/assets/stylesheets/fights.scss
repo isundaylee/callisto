@@ -1,3 +1,104 @@
 // Place all the styles related to the fights controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+#fights_show {
+    height: 100vh;
+    background: url('http://i.imgur.com/Qz1m8B4.jpg') no-repeat center center fixed;
+    background-size: cover;
+
+    nav.cl-navbar {
+        background-color: rgba(0,0,0,0.5);
+        * {
+            text-shadow: none !important;
+        }
+    }
+
+    #botA {
+        position: fixed;
+        top: 150px;
+        right: 50px;
+    }
+
+    #botB {
+        position: fixed;
+        bottom: 250px;
+        left: 50px;
+        #hp>div {
+            width: 50%;
+        }
+    }
+
+    .bot-container {
+        .uk-panel {
+            #hp>div {
+                transition: width 0.5s;
+            }
+
+            .description {
+                font-size: 1em;
+                color: #AAA;
+                margin-top: -0.5em;
+                margin-bottom: 0.5em;
+            }
+        }
+    }
+
+    .menu-container {
+        height: 150px;
+        width: calc(100vw - 10px);
+        position: fixed;
+        left: 0;
+        bottom: 0;
+        padding: 5px;
+        background-color: #F5DE98;
+        background-color: rgba(0,0,0,0.5);
+
+        .uk-panel {
+            background-color: rgba(255,255,255,0.8);
+        }
+
+        .tabs {
+            position: absolute;
+            top: -37px;
+            height: 37px;
+            left: 0;
+            > li > a {
+                background-color: white;
+            }
+        }
+
+        .uk-switcher {
+            margin: 0;
+        }
+
+        #menu-grid {
+            margin-right: 5px;
+        }
+
+        #text {
+            height: 115px;
+            font-size: 20px;
+            font-family: monospace;
+        }
+
+        .skill {
+            margin-top:0;
+            margin-bottom: 5px;
+            .uk-panel {
+                height: 30px;
+                padding: 20px 10px;
+                text-align: center;
+                font-size: 30px;
+                font-family: monospace;
+            }
+            .uk-panel:hover {
+                background-color: rgba(150,255,150, 0.8);
+            }
+            .uk-panel:active {
+                background-color: rgba(100,205,100, 0.8);
+            }
+        }
+    }
+
+}

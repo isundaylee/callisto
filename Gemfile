@@ -13,7 +13,7 @@ gem 'sdoc', '~> 0.4.0', group: :doc
 
 gem 'haml-rails'
 gem 'devise'
-gem 'uikit-rails'
+gem 'uikit-sass-rails'
 gem 'rails_12factor'
 
 gem 'httparty'
